@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="RelatorioConsultas">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Cabecalho" type="CabecalhoType"/>
+                <xs:element name="ListaConsultas" type="ListaConsultasType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="CabecalhoType">
+        <xs:sequence>
+            <xs:element name="HospitalName" type="xs:string"/>
+            <xs:element name="HospitalID" type="xs:string"/>
+            <xs:element name="Periodo">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Mes">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Janeiro"/>
+                                    <xs:enumeration value="Fevereiro"/>
+                                    <xs:enumeration value="Março"/>
+                                    <xs:enumeration value="Abril"/>
+                                    <xs:enumeration value="Maio"/>
+                                    <xs:enumeration value="Junho"/>
+                                    <xs:enumeration value="Julho"/>
+                                    <xs:enumeration value="Agosto"/>
+                                    <xs:enumeration value="Setembro"/>
+                                    <xs:enumeration value="Outubro"/>
+                                    <xs:enumeration value="Novembro"/>
+                                    <xs:enumeration value="Dezembro"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Ano" type="xs:gYear"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ListaConsultasType">
+        <xs:sequence>
+            <xs:element name="Consulta" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Day">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:int">
+                                    <xs:minInclusive value="1"/>
+                                    <xs:maxInclusive value="31"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        
+                        <xs:element name="Speciality" type="xs:string"/>
+                        <xs:element name="ServiceSK" type="xs:int"/>
+                        
+                        <xs:element name="TargetPopulation">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Adulto"/>
+                                    <xs:enumeration value="Criança"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+
+                        <xs:element name="WaitingListType">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Geral"/>
+                                    <xs:enumeration value="Não Oncológica"/>
+                                    <xs:enumeration value="Oncológica"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+
+                        <xs:element name="AverageWaitingTime">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Normal" type="xs:decimal"/>
+                                    <xs:element name="Prioritario" type="xs:decimal"/>
+                                    <xs:element name="MuitoPrioritario" type="xs:decimal"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+
+                        <xs:element name="NumberOfPeople" type="xs:int" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

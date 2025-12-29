@@ -1,0 +1,1042 @@
+[
+    {
+        "ServiceKey": "1",
+        "Speciality": "Psiquiatria - Consulta Geral",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "2",
+        "Speciality": "Cirurgia Geral",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "3",
+        "Speciality": "Cirurgia Plástica e Reconstrutiva",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "4",
+        "Speciality": "Dermatologia - Rastreio Teledermatológico",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "5",
+        "Speciality": "Gastrenterologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "6",
+        "Speciality": "Genética médica",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "7",
+        "Speciality": "Ginecologia",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "8",
+        "Speciality": "Oncologia médica",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "9",
+        "Speciality": "Urologia",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "10",
+        "Speciality": "Estomatologia",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "11",
+        "Speciality": "Hematologia clínica",
+        "PriorityCode": 1,
+        "PriorityDescription": "Muito prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "12",
+        "Speciality": "Neurocirurgia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Muito prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "13",
+        "Speciality": "Otorrinolaringologia",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "14",
+        "Speciality": "Pneumologia",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "15",
+        "Speciality": "Cirurgia Cardiotorácica",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "16",
+        "Speciality": "Oftalmologia",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "17",
+        "Speciality": "Ortopedia",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "18",
+        "Speciality": "Cardiologia",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "19",
+        "Speciality": "Medicina interna",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "20",
+        "Speciality": "Pediatria",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "21",
+        "Speciality": "Dermato-Venerologia",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "22",
+        "Speciality": "Psicologia",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "23",
+        "Speciality": "Reumatologia",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "24",
+        "Speciality": "Cuidados Paliativos",
+        "PriorityCode": 1,
+        "PriorityDescription": "Muito prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "25",
+        "Speciality": "Endocrinologia - Nutrição",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "26",
+        "Speciality": "Medicina física e de reabilitação - Fisiatria",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "27",
+        "Speciality": "Cirurgia Cabeça e Pescoço",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "28",
+        "Speciality": "Endocrinologia",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "29",
+        "Speciality": "Cirurgia Torácica",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "30",
+        "Speciality": "Neurologia",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "31",
+        "Speciality": "Psiquiatria Geral Lisboa",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "32",
+        "Speciality": "Psiquiatria Geral Loures",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "33",
+        "Speciality": "Psiquiatria Geral Mafra",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "34",
+        "Speciality": "Psiquiatria Geral Odivelas",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "35",
+        "Speciality": "Psiquiatria Geral Sintra",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "36",
+        "Speciality": "Psiquiatria Geral Torres Vedras",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "37",
+        "Speciality": "Cirurgia - CR Cancro Hepatobilio/Pancreático",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "38",
+        "Speciality": "Cirurgia Geral - Obesidade",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "39",
+        "Speciality": "Diabetologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Muito prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "40",
+        "Speciality": "Doenças infecciosas",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "41",
+        "Speciality": "Imuno-hemoterapia",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "42",
+        "Speciality": "Nefrologia",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "43",
+        "Speciality": "Medicina Interna - Doenças Auto-imunes",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "44",
+        "Speciality": "Angiologia/Cirurgia Vascular",
+        "PriorityCode": 1,
+        "PriorityDescription": "Muito prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "45",
+        "Speciality": "Cardiologia Pediátrica",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "46",
+        "Speciality": "Anestesiologia",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "47",
+        "Speciality": "Ginecologia - Apoio à Fertilidade",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "48",
+        "Speciality": "Imunoalergologia",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "49",
+        "Speciality": "Obstetrícia",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "50",
+        "Speciality": "Psiquiatria da infância e da adolescência",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "51",
+        "Speciality": "Dor",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "52",
+        "Speciality": "Oftalmologia - Retinopatia Diabética Seguimento",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "53",
+        "Speciality": "Medicina Interna - Hepatites",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "54",
+        "Speciality": "Cirurgia Geral - Cirurgia de Ambulatório",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "55",
+        "Speciality": "Cirurgia Maxilo Facial",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "56",
+        "Speciality": "Cirurgia Pediátrica",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "57",
+        "Speciality": "Doenças Auto-imunes",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "58",
+        "Speciality": "Neuropediatria",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "59",
+        "Speciality": "Sono/Apneia do Sono/Pneumologia",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "60",
+        "Speciality": "Sono/Neurofisiologia",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "61",
+        "Speciality": "Endocrinologia - Teleconsulta",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "62",
+        "Speciality": "Paramiloidose/Neurologia",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "63",
+        "Speciality": "Nefrologia - Teleconsulta",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "64",
+        "Speciality": "Oftalmologia - Rastreio da Retinopatia Diabética",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "65",
+        "Speciality": "Centro de Mama",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "66",
+        "Speciality": "Radiologia",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "67",
+        "Speciality": "Senologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Muito prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "68",
+        "Speciality": "Patologia Clinica - Hipocoagulação Oral",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "69",
+        "Speciality": "Cardiologia - Teleconsulta",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "70",
+        "Speciality": "Cirurgia Vascular",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "71",
+        "Speciality": "Medicina tropical",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "72",
+        "Speciality": "Pedopsiquiatria",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "73",
+        "Speciality": "Risco Familiar",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "74",
+        "Speciality": "CR Hepatobilio/Pancreático",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "75",
+        "Speciality": "CR Colon-Recto",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "76",
+        "Speciality": "Deterioração Cognitiva",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "77",
+        "Speciality": "Medicina Desportiva",
+        "PriorityCode": 1,
+        "PriorityDescription": "Muito prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "78",
+        "Speciality": "Teleconsulta de Cirurgia Geral Feridas Complexas",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "79",
+        "Speciality": "PrEP - Consulta Profilaxia Pré-Exposição",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "80",
+        "Speciality": "Obstetrícia - Diagnóstico Pré-natal",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "81",
+        "Speciality": "Anestesiologia - Dor",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "82",
+        "Speciality": "Doenças autoimunes",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "83",
+        "Speciality": "Pé Diabético - Teleconsulta",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "84",
+        "Speciality": "Rastreio de Doenças Infecciosas",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "85",
+        "Speciality": "Cirurgia Pediátrica - Teleconsulta",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "86",
+        "Speciality": "Dermatologia - Teleconsulta",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "87",
+        "Speciality": "Fisiatria - Teleconsulta",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "88",
+        "Speciality": "Neurologia - Teleconsulta",
+        "PriorityCode": 2,
+        "PriorityDescription": "Prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "89",
+        "Speciality": "Anestesiologia - Medicina Hiperbárica",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "90",
+        "Speciality": "Sono",
+        "PriorityCode": 1,
+        "PriorityDescription": "Muito prioritário",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "91",
+        "Speciality": "Obstetrícia - Alto risco",
+        "PriorityCode": 3,
+        "PriorityDescription": "Normal",
+        "TypeCode": 2,
+        "TypeDescription": "Appointment"
+    },
+    {
+        "ServiceKey": "92",
+        "Speciality": "Cirurgia Geral",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "93",
+        "Speciality": "Cirurgia Maxilo Facial",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "94",
+        "Speciality": "Cirurgia Pediátrica",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "95",
+        "Speciality": "Cirurgia Plástica  e Reconstrutiva",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "96",
+        "Speciality": "Cirurgia Vascular",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "97",
+        "Speciality": "Dermatologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "98",
+        "Speciality": "Ginecologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "99",
+        "Speciality": "Oftalmologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "100",
+        "Speciality": "Ortopedia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "101",
+        "Speciality": "Otorrinolaringologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "102",
+        "Speciality": "Urologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "103",
+        "Speciality": "Anestesiologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "104",
+        "Speciality": "Cirurgia Cardiotorácica",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "105",
+        "Speciality": "Estomatologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "106",
+        "Speciality": "Nefrologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "107",
+        "Speciality": "Neurocirurgia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "108",
+        "Speciality": "Obstetrícia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "109",
+        "Speciality": "Senologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "110",
+        "Speciality": "Unidade Tratamento Cirúrgico da Obesidade",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "111",
+        "Speciality": "Cirurgia Cabeça e Pescoço",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "112",
+        "Speciality": "Radioterapia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "113",
+        "Speciality": "Transplante Medula Óssea",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "114",
+        "Speciality": "Cirurgia Torácica",
+        "PriorityCode": 2,
+        "PriorityDescription": "Doença não oncológica (Prioritário)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "115",
+        "Speciality": "Radiodiagnóstico",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "116",
+        "Speciality": "Angiologia e Cirurgia Vascular",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "117",
+        "Speciality": "Cardiologia Geral",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "118",
+        "Speciality": "Dermato-Venereologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "119",
+        "Speciality": "Neuropatologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "120",
+        "Speciality": "Cirurgia Digestiva Baixa (cólon e recto)",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "121",
+        "Speciality": "Gastroenterologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "122",
+        "Speciality": "Bloco",
+        "PriorityCode": 3,
+        "PriorityDescription": "Doença oncológica (Muito Prioritário)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "123",
+        "Speciality": "Transplante Hepático",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "124",
+        "Speciality": "Unidade de Queimados",
+        "PriorityCode": 2,
+        "PriorityDescription": "Doença não oncológica (Prioritário)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "125",
+        "Speciality": "Neuroradiologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "126",
+        "Speciality": "Pneumologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "127",
+        "Speciality": "Pediatria",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "128",
+        "Speciality": "Reumatologia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "129",
+        "Speciality": "Ginecologia - Obstetrícia",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    },
+    {
+        "ServiceKey": "130",
+        "Speciality": "Dor",
+        "PriorityCode": 1,
+        "PriorityDescription": "Doença não oncológica (Normal)",
+        "TypeCode": 1,
+        "TypeDescription": "Surgery"
+    }
+]

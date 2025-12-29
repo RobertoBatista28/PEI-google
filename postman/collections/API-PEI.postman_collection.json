@@ -1,0 +1,686 @@
+{
+	"info": {
+		"_postman_id": "b128b21c-4f22-42bd-8e1c-4b74ce395313",
+		"name": "API-PEI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34220035"
+	},
+	"item": [
+		{
+			"name": "Documentacao",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter Hospitais",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/hospitais",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"hospitais"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter Hospital",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/hospitais/160",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"hospitais",
+						"160"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pesquisar hospitais próximos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/hospitais/proximos/41.18710409/-8.49882334?distancia=25&hospitalId=144",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"hospitais",
+						"proximos",
+						"41.18710409",
+						"-8.49882334"
+					],
+					"query": [
+						{
+							"key": "distancia",
+							"value": "25"
+						},
+						{
+							"key": "hospitalId",
+							"value": "144"
+						},
+						{
+							"key": "lat",
+							"value": "41.18710409",
+							"disabled": true
+						},
+						{
+							"key": "lng",
+							"value": "-8.49882334",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter Serviços",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/servicos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"servicos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter Serviço",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/servicos/103",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"servicos",
+						"103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter Urgências",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/urgencias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"urgencias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter Urgência",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/urgencias/6928780ae407edc1f8b85c95",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"urgencias",
+						"6928780ae407edc1f8b85c95"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "XML Urgência",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RelatorioUrgencia>\r\n    <Cabecalho>\r\n        <HospitalName>Hospital de Santa Maria</HospitalName>\r\n        <HospitalId>75458</HospitalId>\r\n        <HospitalAddress>Avenida Professor Egas Moniz, 1649-035 Lisboa</HospitalAddress>\r\n        <SubmissionTimestamp>2025-02-16T14:35:00Z</SubmissionTimestamp>\r\n    </Cabecalho>\r\n\r\n    <ListaUrgencias>\r\n        <Urgencia>\r\n            <EmergencyType>\r\n                <Code>3</Code>\r\n                <Description>Urgência Pediátrica</Description>\r\n            </EmergencyType>\r\n\r\n            <EmergencyStatus>Aberta</EmergencyStatus>\r\n            <LastUpdate>2025-02-16T14:30:00Z</LastUpdate>\r\n\r\n            <Triage>\r\n                <Red>\r\n                    <Time>10</Time>\r\n                    <Length>1</Length>\r\n                </Red>\r\n                <Orange>\r\n                    <Time>30</Time>\r\n                    <Length>3</Length>\r\n                </Orange>\r\n                <Yellow>\r\n                    <Time>90</Time>\r\n                    <Length>6</Length>\r\n                </Yellow>\r\n                <Green>\r\n                    <Time>150</Time>\r\n                    <Length>10</Length>\r\n                </Green>\r\n                <Blue>\r\n                    <Time>200</Time>\r\n                    <Length>2</Length>\r\n                </Blue>\r\n            </Triage>\r\n\r\n            <Observation>\r\n                <Red>\r\n                    <Time>15</Time>\r\n                    <Length>2</Length>\r\n                </Red>\r\n                <Orange>\r\n                    <Time>30</Time>\r\n                    <Length>3</Length>\r\n                </Orange>\r\n                <Yellow>\r\n                    <Time>90</Time>\r\n                    <Length>6</Length>\r\n                </Yellow>\r\n                <Green>\r\n                    <Time>150</Time>\r\n                    <Length>10</Length>\r\n                </Green>\r\n                <Blue>\r\n                    <Time>240</Time>\r\n                    <Length>3</Length>\r\n                </Blue>\r\n            </Observation>\r\n        </Urgencia>\r\n    </ListaUrgencias>\r\n</RelatorioUrgencia>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/urgencias/submit-xml",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"urgencias",
+						"submit-xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Urgência - Evolução temporal dos tempos de espera",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/urgencias/evolucao-temporal?data=2025-02-16&tipo=pediátrica",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"urgencias",
+						"evolucao-temporal"
+					],
+					"query": [
+						{
+							"key": "data",
+							"value": "2025-02-16"
+						},
+						{
+							"key": "tipo",
+							"value": "pediátrica"
+						},
+						{
+							"key": "hospitalId",
+							"value": "213",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Urgência - Top 10 hospitais com menores tempos médios de espera",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/urgencias/top-hospitais-pediatricas?dataInicio=2024-02-16&dataFim=2025-12-20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"urgencias",
+						"top-hospitais-pediatricas"
+					],
+					"query": [
+						{
+							"key": "dataInicio",
+							"value": "2024-02-16"
+						},
+						{
+							"key": "dataFim",
+							"value": "2025-12-20"
+						},
+						{
+							"key": "limit",
+							"value": "5",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Urgência - Percentagem por categoria de triagem",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/urgencias/percentagens-triagem?hospitalId=171",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"urgencias",
+						"percentagens-triagem"
+					],
+					"query": [
+						{
+							"key": "hospitalId",
+							"value": "171"
+						},
+						{
+							"key": "dataInicio",
+							"value": "2024-01-01",
+							"disabled": true
+						},
+						{
+							"key": "dataFim",
+							"value": "2024-12-31",
+							"disabled": true
+						},
+						{
+							"key": "periodo",
+							"value": "semana",
+							"disabled": true
+						},
+						{
+							"key": "periodoDia",
+							"value": "manha",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Urgência - Média de utentes em espera por tipologia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/urgencias/media-espera?dataInicio=2025-02-16&dataFim=2025-12-20&periodo=dia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"urgencias",
+						"media-espera"
+					],
+					"query": [
+						{
+							"key": "dataInicio",
+							"value": "2025-02-16"
+						},
+						{
+							"key": "dataFim",
+							"value": "2025-12-20"
+						},
+						{
+							"key": "tipo",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "periodo",
+							"value": "dia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Urgência - Tempo médio de espera para triagem nas urgências pediátricas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/urgencias/media-espera?dataInicio=2025-02-16&dataFim=2025-12-20&periodo=dia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"urgencias",
+						"media-espera"
+					],
+					"query": [
+						{
+							"key": "dataInicio",
+							"value": "2025-02-16"
+						},
+						{
+							"key": "dataFim",
+							"value": "2025-12-20"
+						},
+						{
+							"key": "tipo",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "periodo",
+							"value": "dia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter Cirurgias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/cirurgias?ano=2024&especialidade=Cardiologia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"cirurgias"
+					],
+					"query": [
+						{
+							"key": "ano",
+							"value": "2024"
+						},
+						{
+							"key": "especialidade",
+							"value": "Cardiologia"
+						},
+						{
+							"key": "page",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "XML Cirurgia",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RelatorioCirurgias>\r\n    <Cabecalho>\r\n        <HospitalID>1023</HospitalID>\r\n        <HospitalName>Centro Materno-Infantil do Norte (Centro Hospitalar do Porto)</HospitalName>\r\n        <Periodo>\r\n            <Mes>Dezembro</Mes>\r\n            <Ano>2024</Ano>\r\n        </Periodo>\r\n    </Cabecalho>\r\n\r\n    <ListaCirurgias>\r\n        <Cirurgia>\r\n            <Day>15</Day>\r\n            <Speciality>Cardiologia</Speciality>\r\n            <ServiceSK>102</ServiceSK>\r\n            <WaitingListType>Oncológica</WaitingListType>\r\n            <AverageWaitingTime>120.5</AverageWaitingTime>\r\n            <NumberOfPeople>25</NumberOfPeople>\r\n            <PriorityDescription>Prioritário</PriorityDescription>\r\n        </Cirurgia>\r\n    </ListaCirurgias>\r\n</RelatorioCirurgias>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/cirurgias/submit-xml",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"cirurgias",
+						"submit-xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tempo médio de espera para cirurgia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/cirurgias/tempo-medio-especialidade?mes=Dezembro&ano=2024&especialidade=Cardiologia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"cirurgias",
+						"tempo-medio-especialidade"
+					],
+					"query": [
+						{
+							"key": "mes",
+							"value": "Dezembro"
+						},
+						{
+							"key": "ano",
+							"value": "2024"
+						},
+						{
+							"key": "especialidade",
+							"value": "Cardiologia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter Consultas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/consultas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"consultas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "XML Consulta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<RelatorioConsultas>\r\n\r\n    <Cabecalho>\r\n        <HospitalName>Centro Materno-Infantil do Norte (Centro Hospitalar do Porto)</HospitalName>\r\n        <HospitalID>12345</HospitalID>\r\n        <Periodo>\r\n            <Mes>Dezembro</Mes>\r\n            <Ano>2024</Ano>\r\n        </Periodo>\r\n    </Cabecalho>\r\n\r\n    <ListaConsultas>\r\n        <Consulta>\r\n            <Day>15</Day>\r\n            <Speciality>Cardiologia</Speciality>\r\n            <ServiceSK>102</ServiceSK>\r\n            <TargetPopulation>Criança</TargetPopulation>\r\n            <WaitingListType>Não Oncológica</WaitingListType>\r\n            <AverageWaitingTime>\r\n                <Normal>120</Normal>\r\n                <Prioritario>45</Prioritario>\r\n                <MuitoPrioritario>15</MuitoPrioritario>\r\n            </AverageWaitingTime>\r\n            <NumberOfPeople>12</NumberOfPeople>\r\n        </Consulta>\r\n\r\n        <Consulta>\r\n            <Day>16</Day>\r\n            <Speciality>Dermatologia</Speciality>\r\n            <ServiceSK>105</ServiceSK>\r\n            <TargetPopulation>Adulto</TargetPopulation>\r\n            <WaitingListType>Geral</WaitingListType>\r\n            <AverageWaitingTime>\r\n                <Normal>90</Normal>\r\n                <Prioritario>30</Prioritario>\r\n                <MuitoPrioritario>10</MuitoPrioritario>\r\n            </AverageWaitingTime>\r\n            <NumberOfPeople>5</NumberOfPeople>\r\n        </Consulta>\r\n    </ListaConsultas>\r\n</RelatorioConsultas>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/consultas/submit-xml",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"consultas",
+						"submit-xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultas - tempos médios oncologia vs não-oncologia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/consultas/diferenca-oncologia?especialidade=Cirurgia Plástica  e Reconstrutiva",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"consultas",
+						"diferenca-oncologia"
+					],
+					"query": [
+						{
+							"key": "especialidade",
+							"value": "Cirurgia Plástica  e Reconstrutiva"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Discrepância entre tempos médios de consultas e cirurgias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/stats/discrepancia-consulta-cirurgia?ano=2024&periodo=mes&mes=Dezembro&semana=42&dia=15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"stats",
+						"discrepancia-consulta-cirurgia"
+					],
+					"query": [
+						{
+							"key": "ano",
+							"value": "2024"
+						},
+						{
+							"key": "periodo",
+							"value": "mes"
+						},
+						{
+							"key": "mes",
+							"value": "Dezembro"
+						},
+						{
+							"key": "semana",
+							"value": "42"
+						},
+						{
+							"key": "dia",
+							"value": "15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Estatisticas gerais",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/stats/geral",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"stats",
+						"geral"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

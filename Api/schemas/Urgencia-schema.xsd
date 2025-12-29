@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+    <!-- Elemento raiz -->
+    <xs:element name="Urgencia">
+        <xs:complexType>
+            <xs:sequence>
+
+                <!-- HospitalId -->
+                <xs:element name="HospitalId" type="xs:integer"/>
+
+                <!-- LastUpdate -->
+                <xs:element name="LastUpdate" type="xs:dateTime"/>
+
+                <!-- ExtractionDate -->
+                <xs:element name="ExtractionDate" type="xs:dateTime"/>
+
+                <!-- EmergencyType -->
+                <xs:element name="EmergencyType">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Code" type="xs:string"/>
+                            <xs:element name="Description" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Triage -->
+                <xs:element name="Triage">
+                    <xs:complexType>
+                        <xs:sequence>
+
+                            <!-- Cor Vermelha -->
+                            <xs:element name="Red">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Time" type="xs:integer"/>
+                                        <xs:element name="Length" type="xs:integer"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Cor Laranja -->
+                            <xs:element name="Orange">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Time" type="xs:integer"/>
+                                        <xs:element name="Length" type="xs:integer"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Cor Amarela -->
+                            <xs:element name="Yellow">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Time" type="xs:integer"/>
+                                        <xs:element name="Length" type="xs:integer"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Cor Verde -->
+                            <xs:element name="Green">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Time" type="xs:integer"/>
+                                        <xs:element name="Length" type="xs:integer"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Cor Azul -->
+                            <xs:element name="Blue">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Time" type="xs:integer"/>
+                                        <xs:element name="Length" type="xs:integer"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

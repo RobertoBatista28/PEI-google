@@ -1,0 +1,109 @@
+{
+    "filename": "Hospital.csv",
+    "description": "Catálogo de hospitais e instituições de saúde em Portugal",
+    "columns": [
+        {
+            "name": "HospitalKey",
+            "type": "Integer",
+            "observation": "Chave única interna, apenas para referência interna do sistema",
+            "required": true,
+            "primaryKey": true,
+            "example": "1"
+        },
+        {
+            "name": "HospitalId",
+            "type": "Integer",
+            "observation": "Identificador único do hospital; usado como PK e como FK em outras collections (Ex: Consulta, Cirurgia, Urgência)",
+            "required": true,
+            "primaryKey": true,
+            "example": "151"
+        },
+        {
+            "name": "HospitalName",
+            "type": "String",
+            "observation": "Nome oficial do hospital ou unidade de saúde",
+            "required": true,
+            "example": "Hospital São Gonçalo - Amarante (Centro Hospitalar Tâmega e Sousa, EPE)"
+        },
+        {
+            "name": "Description",
+            "type": "String",
+            "observation": "Descrição ou designação do hospital/instituição",
+            "required": false,
+            "example": "Centro Hospitalar Tâmega e Sousa, EPE"
+        },
+        {
+            "name": "Address",
+            "type": "String",
+            "observation": "Morada completa do hospital",
+            "required": true,
+            "example": "Rua da Lama, nº 76 4600-758 Amarante"
+        },
+        {
+            "name": "District",
+            "type": "String",
+            "observation": "Distrito onde se localiza o hospital",
+            "required": true,
+            "example": "Porto"
+        },
+        {
+            "name": "Latitude",
+            "type": "Decimal",
+            "observation": "Coordenada geográfica - latitude",
+            "required": false,
+            "example": "41.270974"
+        },
+        {
+            "name": "Longitude",
+            "type": "Decimal",
+            "observation": "Coordenada geográfica - longitude",
+            "required": false,
+            "example": "-8.080458"
+        },
+        {
+            "name": "NUTSI",
+            "type": "String",
+            "observation": "NUTS I - nível mais abrangente de região",
+            "required": true,
+            "example": "Continente"
+        },
+        {
+            "name": "NUTSII",
+            "type": "String",
+            "observation": "NUTS II - região administrativa intermédia",
+            "required": true,
+            "example": "Norte"
+        },
+        {
+            "name": "NUTSIII",
+            "type": "String",
+            "observation": "NUTS III - sub-região/localidade mais detalhada",
+            "required": true,
+            "example": "Tâmega e Sousa"
+        },
+        {
+            "name": "PhoneNum",
+            "type": "String",
+            "observation": "Número de telefone principal do hospital",
+            "required": false,
+            "example": "255410500"
+        },
+        {
+            "name": "Email",
+            "type": "String",
+            "observation": "Email institucional do hospital",
+            "required": false,
+            "example": "administracao@chts.min-saude.pt"
+        }
+    ],
+    "notes": [
+        "Campos usados como referência para consultas, cirurgias e urgências",
+        "HospitalId é a chave primária e também funciona como FK em outras collections",
+        "Latitude e Longitude permitem visualizações em mapas e dashboards"
+    ],
+    "relatedFiles": [
+        "Urgencia.csv",
+        "Consulta.csv",
+        "Cirurgia.csv"
+    ]
+}

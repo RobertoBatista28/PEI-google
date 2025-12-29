@@ -1,0 +1,66 @@
+{
+    "filename": "Consulta.csv",
+    "description": "Dados mensais de tempos médios de espera para consultas por especialidade hospitalar",
+    "updateFrequency": "Mensal",
+    "columns": [
+        {
+            "name": "HospitalName",
+            "type": "String",
+            "observation": "Nome completo do hospital/instituição de saúde",
+            "required": true,
+            "example": "Hospital Distrital de Santarém, EPE"
+        },
+        {
+            "name": "ServiceSK",
+            "type": "Integer",
+            "observation": "Chave única do serviço/especialidade; FK referenciando Servico.ServiceSK",
+            "required": true,
+            "example": 102
+        },
+        {
+            "name": "AverageWaitingTime",
+            "type": "Decimal",
+            "observation": "Tempo médio de espera em dias para a consulta da especialidade no hospital",
+            "required": true,
+            "unit": "dias",
+            "example": 32.0
+        },
+        {
+            "name": "Month",
+            "type": "String",
+            "observation": "Nome do mês em português",
+            "required": true,
+            "allowedValues": [
+              "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+              "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+            ],
+            "example": "Dezembro"
+        },
+        {
+            "name": "Year",
+            "type": "Integer",
+            "observation": "Ano de referência dos dados",
+            "required": true,
+            "example": 2025
+        },
+        {
+            "name": "NumberOfPeople",
+            "type": "Integer",
+            "observation": "Número de pacientes contabilizados para a especialidade naquele mês",
+            "required": true,
+            "unit": "utentes",
+            "example": 3
+        }
+    ],
+    "notes": [
+        "Dados apenas de consultas: cirurgias devem ser mantidas em outra collection separada",
+        "HospitalId é FK referenciando Hospital.HospitalId",
+        "ServiceSK é FK referenciando Servico.ServiceSK",
+        "Período de referência: Mês/Ano",
+        "AverageWaitingTime é em dias e arredondado para 1 casa decimal se necessário"
+    ],
+    "relatedFiles": [
+        "Hospital.csv",
+        "Servicos.csv"
+    ]
+}

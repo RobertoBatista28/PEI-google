@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelatorioUrgencia
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="Urgencia-schema.xsd">
+
+    <Cabecalho>
+        <HospitalName>Hospital de Santa Maria</HospitalName>
+        <HospitalId>75458</HospitalId>
+        <HospitalAddress>Avenida Professor Egas Moniz, 1649-035 Lisboa</HospitalAddress>
+        <SubmissionTimestamp>2025-02-16T14:35:00Z</SubmissionTimestamp>
+    </Cabecalho>
+
+    <ListaUrgencias>
+        <Urgencia>
+            <EmergencyType>
+                <Code>3</Code>
+                <Description>Urgência Pediátrica</Description>
+            </EmergencyType>
+
+            <EmergencyStatus>Aberta</EmergencyStatus>
+            <LastUpdate>2025-02-16T14:30:00Z</LastUpdate>
+
+            <Triage>
+                <Red>
+                    <Time>10</Time>
+                    <Length>1</Length>
+                </Red>
+                <Orange>
+                    <Time>30</Time>
+                    <Length>3</Length>
+                </Orange>
+                <Yellow>
+                    <Time>90</Time>
+                    <Length>6</Length>
+                </Yellow>
+                <Green>
+                    <Time>150</Time>
+                    <Length>10</Length>
+                </Green>
+                <Blue>
+                    <Time>200</Time>
+                    <Length>2</Length>
+                </Blue>
+            </Triage>
+
+            <Observation>
+                <Red>
+                    <Time>15</Time>
+                    <Length>2</Length>
+                </Red>
+                <Blue>
+                    <Time>240</Time>
+                    <Length>3</Length>
+                </Blue>
+            </Observation>
+        </Urgencia>
+    </ListaUrgencias>
+</RelatorioUrgencia>

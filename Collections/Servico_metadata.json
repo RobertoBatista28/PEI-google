@@ -1,0 +1,58 @@
+{
+    "filename": "Servico.csv",
+    "description": "Catálogo de serviços/especialidades médicas disponíveis nos hospitais",
+    "columns": [
+        {
+            "name": "ServiceKey",
+            "type": "Integer",
+            "observation": "Chave única do serviço, usada como PK e referenciada em Consulta e Cirurgia como FK (ServiceSK)",
+            "required": true,
+            "primaryKey": true,
+            "example": "1"
+        },
+        {
+            "name": "Speciality",
+            "type": "String",
+            "observation": "Nome da especialidade médica ou cirúrgica",
+            "required": true,
+            "example": "Psiquiatria - Consulta Geral"
+        },
+        {
+            "name": "PriorityCode",
+            "type": "Integer",
+            "observation": "Código de prioridade clínica do serviço (1 = Normal, 2 = Prioritário, 3 = Muito Prioritário)",
+            "required": true,
+            "example": "3"
+        },
+        {
+            "name": "PriorityDescription",
+            "type": "String",
+            "observation": "Descrição textual da prioridade clínica do serviço",
+            "required": true,
+            "example": "Normal"
+        },
+        {
+            "name": "TypeCode",
+            "type": "Integer",
+            "observation": "Código do tipo de cuidado prestado (1 = Cirurgia, 2 = Consulta)",
+            "required": true,
+            "example": "2"
+        },
+        {
+            "name": "TypeDescription",
+            "type": "String",
+            "observation": "Descrição do tipo de cuidado prestado (Consulta ou Cirurgia)",
+            "required": true,
+            "example": "Appointment"
+        }
+    ],
+    "notes": [
+        "Campos usados como referência para tempos de espera de consultas e cirurgias",
+        "ServiceKey é a chave primária e também funciona como FK em collections Consulta e Cirurgia",
+        "PriorityCode e TypeCode permitem agregações e filtros analíticos"
+    ],
+    "relatedFiles": [
+        "Consulta.csv",
+        "Cirurgia.csv"
+    ]
+}

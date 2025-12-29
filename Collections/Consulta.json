@@ -1,0 +1,730 @@
+[
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 1,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 21
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 2,
+        "AverageWaitingTime": 200.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 696
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 3,
+        "AverageWaitingTime": 200.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 696
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 4,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 11
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 5,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 11
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 6,
+        "AverageWaitingTime": 102.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 106
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 7,
+        "AverageWaitingTime": 102.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 106
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 8,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 8
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 9,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 8
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 10,
+        "AverageWaitingTime": 26.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 17
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 11,
+        "AverageWaitingTime": 26.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 17
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 12,
+        "AverageWaitingTime": 143.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 353
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 13,
+        "AverageWaitingTime": 143.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 353
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 14,
+        "AverageWaitingTime": 60.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 7
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 15,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 21
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 16,
+        "AverageWaitingTime": 104.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 17
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 17,
+        "AverageWaitingTime": 104.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 17
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 18,
+        "AverageWaitingTime": 296.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1555
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 19,
+        "AverageWaitingTime": 296.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1555
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 20,
+        "AverageWaitingTime": 152.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 393
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 21,
+        "AverageWaitingTime": 152.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 393
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 22,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 26
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 23,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 26
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 24,
+        "AverageWaitingTime": 42.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 31
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 25,
+        "AverageWaitingTime": 42.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 31
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 26,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 7
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 27,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 28,
+        "AverageWaitingTime": 30.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 0
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 29,
+        "AverageWaitingTime": 30.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 0
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 30,
+        "AverageWaitingTime": 35.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 2
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 31,
+        "AverageWaitingTime": 35.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 2
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 32,
+        "AverageWaitingTime": 36.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 2
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 33,
+        "AverageWaitingTime": 118.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 34,
+        "AverageWaitingTime": 25.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 0
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 35,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 36,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 37,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 4
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 38,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 4
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 39,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 40,
+        "AverageWaitingTime": 94.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 6
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 41,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 42,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 43,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 51
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 44,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 51
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 45,
+        "AverageWaitingTime": 80.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 48
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 46,
+        "AverageWaitingTime": 80.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 48
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 47,
+        "AverageWaitingTime": 93.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 180
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 48,
+        "AverageWaitingTime": 93.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 180
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 49,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 18
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 50,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 18
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 51,
+        "AverageWaitingTime": 60.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 7
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 77,
+        "AverageWaitingTime": 91.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 260
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 78,
+        "AverageWaitingTime": 86.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 46
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 79,
+        "AverageWaitingTime": 183.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 155
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 80,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 40
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 81,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 40
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 82,
+        "AverageWaitingTime": 188.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 284
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 83,
+        "AverageWaitingTime": 188.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 284
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 84,
+        "AverageWaitingTime": 170.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 6
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 85,
+        "AverageWaitingTime": 179.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 32
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 86,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 11
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 87,
+        "AverageWaitingTime": 0.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 11
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 88,
+        "AverageWaitingTime": 74.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 19
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 89,
+        "AverageWaitingTime": 74.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 19
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 90,
+        "AverageWaitingTime": 37.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1
+    },
+    {
+        "HospitalName": "Hospital Distrital Torres Vedras (Centro Hospitalar do Oeste)",
+        "ServiceSK": 91,
+        "AverageWaitingTime": 91.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 260
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 52,
+        "AverageWaitingTime": 26.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 0
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 53,
+        "AverageWaitingTime": 14.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 0
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 54,
+        "AverageWaitingTime": 23.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 55,
+        "AverageWaitingTime": 6.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 0
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 56,
+        "AverageWaitingTime": 43.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 57,
+        "AverageWaitingTime": 78.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 2
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 58,
+        "AverageWaitingTime": 31.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 2
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 59,
+        "AverageWaitingTime": 33.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 2
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 60,
+        "AverageWaitingTime": 33.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 2
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 61,
+        "AverageWaitingTime": 50.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 4
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 62,
+        "AverageWaitingTime": 53.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 2
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 63,
+        "AverageWaitingTime": 32.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 2
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 64,
+        "AverageWaitingTime": 29.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 0
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 65,
+        "AverageWaitingTime": 28.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 0
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 66,
+        "AverageWaitingTime": 8.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 0
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 67,
+        "AverageWaitingTime": 15.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 0
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 68,
+        "AverageWaitingTime": 36.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 69,
+        "AverageWaitingTime": 36.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 70,
+        "AverageWaitingTime": 10.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 0
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 71,
+        "AverageWaitingTime": 58.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 2
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 72,
+        "AverageWaitingTime": 66.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 4
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 73,
+        "AverageWaitingTime": 21.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 74,
+        "AverageWaitingTime": 26.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 3
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 75,
+        "AverageWaitingTime": 31.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 3
+    },
+    {
+        "HospitalName": "Hospital Professor Doutor Fernando Fonseca, EPE",
+        "ServiceSK": 76,
+        "AverageWaitingTime": 14.0,
+        "Month": "Dezembro",
+        "Year": 2024,
+        "NumberOfPeople": 1
+    }
+]

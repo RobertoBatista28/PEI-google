@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelatorioConsultas
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="Consulta-schema.xsd">
+
+    <Cabecalho>
+        <HospitalName>Centro Materno-Infantil do Norte (Centro Hospitalar do Porto)</HospitalName>
+        <HospitalID>12345</HospitalID>
+        <Periodo>
+            <Mes>Dezembro</Mes>
+            <Ano>2024</Ano>
+        </Periodo>
+    </Cabecalho>
+
+    <ListaConsultas>
+        <Consulta>
+            <Day>15</Day>
+            <Speciality>Cardiologia</Speciality>
+            <ServiceSK>102</ServiceSK>
+            <TargetPopulation>Criança</TargetPopulation>
+            <WaitingListType>Não Oncológica</WaitingListType>
+            <AverageWaitingTime>
+                <Normal>120</Normal>
+                <Prioritario>45</Prioritario>
+                <MuitoPrioritario>15</MuitoPrioritario>
+            </AverageWaitingTime>
+            <NumberOfPeople>12</NumberOfPeople>
+        </Consulta>
+
+        <Consulta>
+            <Day>16</Day>
+            <Speciality>Dermatologia</Speciality>
+            <ServiceSK>105</ServiceSK>
+            <TargetPopulation>Adulto</TargetPopulation>
+            <WaitingListType>Geral</WaitingListType>
+            <AverageWaitingTime>
+                <Normal>90</Normal>
+                <Prioritario>30</Prioritario>
+                <MuitoPrioritario>10</MuitoPrioritario>
+            </AverageWaitingTime>
+            <NumberOfPeople>5</NumberOfPeople>
+        </Consulta>
+    </ListaConsultas>
+</RelatorioConsultas>
