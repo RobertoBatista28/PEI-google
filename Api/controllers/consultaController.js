@@ -211,108 +211,156 @@ exports.submitConsultaXML = async (req, res, next) => {
     const xmlData = req.body;
     
     // Validar estrutura do XML
-    if (!xmlData || !xmlData.Consulta) {
+    if (!xmlData || !xmlData.RelatorioConsultas) {
       return res.status(400).json({
         success: false,
         status: 'error',
-        error: 'XML inválido: elemento <Consulta> não encontrado'
+        error: 'XML inválido: elemento <RelatorioConsultas> não encontrado'
       });
     }
 
-    const consultaData = xmlData.Consulta;
+    const cabecalho = xmlData.RelatorioConsultas.Cabecalho;
+    const listaConsultas = xmlData.RelatorioConsultas.ListaConsultas;
 
-    // Validar campos obrigatórios
-    const requiredFields = ['HospitalId', 'HospitalName', 'ServiceSK', 'AverageWaitingTime', 'Month', 'Year', 'NumberOfPeople'];
-    const missingFields = requiredFields.filter(field => !consultaData[field]);
-    
-    if (missingFields.length > 0) {
+    if (!cabecalho || !listaConsultas) {
       return res.status(400).json({
         success: false,
         status: 'error',
-        error: `Campos obrigatórios ausentes: ${missingFields.join(', ')}`
+        error: 'XML inválido: Cabecalho ou ListaConsultas não encontrado'
       });
     }
 
-    // Validar se o ServiceSK existe na coleção Servico
-    const servicoExists = await Servico.findOne({ ServiceKey: parseInt(consultaData.ServiceSK) });
-    if (!servicoExists) {
-      return res.status(404).json({
+    // Validar campos obrigatórios do cabeçalho
+    if (!cabecalho.HospitalID || !cabecalho.HospitalName) {
+      return res.status(400).json({
         success: false,
         status: 'error',
-        error: `Serviço com ServiceKey ${consultaData.ServiceSK} não encontrado`
+        error: 'Campos obrigatórios ausentes no cabeçalho: HospitalID e HospitalName'
       });
     }
 
     // Validar se o Hospital existe pelo HospitalId
     const hospitalExists = await Hospital.findOne({ 
-      HospitalId: parseInt(consultaData.HospitalId)
+      HospitalId: parseInt(cabecalho.HospitalID)
     });
     
     if (!hospitalExists) {
       return res.status(400).json({
         success: false,
         status: 'error',
-        error: `Hospital com HospitalId ${consultaData.HospitalId} não encontrado na base de dados`
+        error: `Hospital com HospitalId ${cabecalho.HospitalID} não encontrado na base de dados`
       });
     }
 
     // Validar se o HospitalName corresponde ao HospitalId
-    if (hospitalExists.HospitalName !== consultaData.HospitalName) {
+    if (hospitalExists.HospitalName !== cabecalho.HospitalName) {
       return res.status(400).json({
         success: false,
         status: 'error',
-        error: `HospitalName "${consultaData.HospitalName}" não corresponde ao HospitalId ${consultaData.HospitalId}`
+        error: `HospitalName "${cabecalho.HospitalName}" não corresponde ao HospitalId ${cabecalho.HospitalID}`
       });
     }
 
-    // Criar objeto de consulta
-    const novaConsulta = new Consulta({
-      HospitalId: parseInt(consultaData.HospitalId),
-      HospitalName: consultaData.HospitalName,
-      ServiceSK: parseInt(consultaData.ServiceSK),
-      AverageWaitingTime: parseFloat(consultaData.AverageWaitingTime),
-      Month: consultaData.Month,
-      Year: parseInt(consultaData.Year),
-      NumberOfPeople: parseInt(consultaData.NumberOfPeople),
-      PriorityDescription: consultaData.PriorityDescription || null,
-      Speciality: consultaData.Speciality || servicoExists.Speciality
-    });
+    // Normalizar lista para array (caso venha apenas 1 item)
+    let consultas = listaConsultas.Consulta;
+    if (!Array.isArray(consultas)) {
+      consultas = [consultas];
+    }
 
-    // Verificar se já existe um registo idêntico (evitar duplicatas)
-    const existingRecord = await Consulta.findOne({
-      HospitalId: novaConsulta.HospitalId,
-      ServiceSK: novaConsulta.ServiceSK,
-      Month: novaConsulta.Month,
-      Year: novaConsulta.Year
-    });
+    // Função auxiliar para converter mês em número
+    const getMonthNumber = (mes) => {
+      const meses = {
+        'janeiro': 1, 'fevereiro': 2, 'março': 3, 'abril': 4,
+        'maio': 5, 'junho': 6, 'julho': 7, 'agosto': 8,
+        'setembro': 9, 'outubro': 10, 'novembro': 11, 'dezembro': 12
+      };
+      return meses[mes.toLowerCase()] || 1;
+    };
 
-    if (existingRecord) {
-      // Atualizar registo existente
-      existingRecord.HospitalName = novaConsulta.HospitalName;
-      existingRecord.AverageWaitingTime = novaConsulta.AverageWaitingTime;
-      existingRecord.NumberOfPeople = novaConsulta.NumberOfPeople;
-      existingRecord.PriorityDescription = novaConsulta.PriorityDescription;
-      existingRecord.Speciality = novaConsulta.Speciality;
-      
-      await existingRecord.save();
+    // Preparar operações em lote
+    const bulkOperations = [];
+    const errors = [];
 
-      return res.status(200).json({
+    for (let i = 0; i < consultas.length; i++) {
+      const consultaData = consultas[i];
+
+      try {
+        // Validar se o ServiceSK existe na coleção Servico
+        const servicoExists = await Servico.findOne({ ServiceKey: parseInt(consultaData.ServiceSK) });
+        if (!servicoExists) {
+          errors.push(`Consulta ${i + 1}: Serviço com ServiceKey ${consultaData.ServiceSK} não encontrado`);
+          continue;
+        }
+
+        // Construir documento
+        const doc = {
+          HospitalId: parseInt(cabecalho.HospitalID),
+          HospitalName: cabecalho.HospitalName,
+          ServiceSK: parseInt(consultaData.ServiceSK),
+          TargetPopulation: consultaData.TargetPopulation,
+          WaitingListType: consultaData.WaitingListType,
+          AverageWaitingTime: {
+            Normal: parseFloat(consultaData.AverageWaitingTime.Normal || 0),
+            Prioritario: parseFloat(consultaData.AverageWaitingTime.Prioritario || 0),
+            MuitoPrioritario: parseFloat(consultaData.AverageWaitingTime.MuitoPrioritario || 0)
+          },
+          Day: parseInt(consultaData.Day),
+          Week: Math.ceil(parseInt(consultaData.Day) / 7), // Aproximação simples
+          Quarter: Math.ceil(getMonthNumber(cabecalho.Periodo.Mes) / 3),
+          Month: cabecalho.Periodo.Mes,
+          Year: parseInt(cabecalho.Periodo.Ano),
+          NumberOfPeople: parseInt(consultaData.NumberOfPeople || 0),
+          PriorityDescription: consultaData.PriorityDescription || null,
+          Speciality: consultaData.Speciality || servicoExists.Speciality
+        };
+
+        // Critério de unicidade
+        const filter = {
+          HospitalId: doc.HospitalId,
+          ServiceSK: doc.ServiceSK,
+          Month: doc.Month,
+          Year: doc.Year,
+          Day: doc.Day
+        };
+
+        bulkOperations.push({
+          updateOne: {
+            filter: filter,
+            update: { $set: doc },
+            upsert: true
+          }
+        });
+
+      } catch (err) {
+        errors.push(`Consulta ${i + 1}: ${err.message}`);
+      }
+    }
+
+    // Executar operações em lote
+    if (bulkOperations.length > 0) {
+      const result = await Consulta.bulkWrite(bulkOperations);
+
+      return res.status(201).json({
         success: true,
         status: 'success',
-        message: 'Dados de consulta atualizados com sucesso',
-        data: existingRecord
+        message: 'Dados de consulta processados com sucesso',
+        stats: {
+          recebidos: consultas.length,
+          inseridos: result.upsertedCount,
+          atualizados: result.modifiedCount,
+          erros: errors.length
+        },
+        errors: errors.length > 0 ? errors : undefined
+      });
+    } else {
+      return res.status(400).json({
+        success: false,
+        status: 'error',
+        message: 'Nenhum dado válido para processar',
+        errors: errors
       });
     }
 
-    // Salvar nova consulta
-    await novaConsulta.save();
-    
-    res.status(201).json({
-      success: true,
-      status: 'success',
-      message: 'Dados de consulta criados com sucesso',
-      data: novaConsulta
-    });
   } catch (error) {
     next(error);
   }
