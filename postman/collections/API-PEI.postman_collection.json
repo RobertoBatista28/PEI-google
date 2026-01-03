@@ -393,12 +393,12 @@
 			"response": []
 		},
 		{
-			"name": "Urgência - Tempo médio de espera para triagem nas urgências pediátricas",
+			"name": "Urgência - Tempo médio de espera para triagem nas urgências pediátricas por região",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/v1/urgencias/media-espera?dataInicio=2025-02-16&dataFim=2025-12-20&periodo=dia",
+					"raw": "http://localhost:3000/api/v1/urgencias/tempo-medio-pediatricas?periodo=trimestre",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -408,25 +408,17 @@
 						"api",
 						"v1",
 						"urgencias",
-						"media-espera"
+						"tempo-medio-pediatricas"
 					],
 					"query": [
 						{
-							"key": "dataInicio",
-							"value": "2025-02-16"
-						},
-						{
-							"key": "dataFim",
-							"value": "2025-12-20"
-						},
-						{
-							"key": "tipo",
-							"value": "3",
-							"disabled": true
-						},
-						{
 							"key": "periodo",
-							"value": "dia"
+							"value": "trimestre"
+						},
+						{
+							"key": "regiao",
+							"value": "Algarve",
+							"disabled": true
 						}
 					]
 				}
@@ -594,7 +586,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/v1/consultas/diferenca-oncologia?especialidade=Cirurgia Plástica  e Reconstrutiva",
+					"raw": "http://localhost:3000/api/v1/consultas/diferenca-oncologia?especialidade=Cardiologia",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -609,7 +601,22 @@
 					"query": [
 						{
 							"key": "especialidade",
-							"value": "Cirurgia Plástica  e Reconstrutiva"
+							"value": "Cardiologia"
+						},
+						{
+							"key": "hospitalId",
+							"value": "227",
+							"disabled": true
+						},
+						{
+							"key": "dataInicio",
+							"value": "2024-12-19",
+							"disabled": true
+						},
+						{
+							"key": "dataFim",
+							"value": "2024-12-20",
+							"disabled": true
 						}
 					]
 				}

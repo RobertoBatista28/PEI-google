@@ -36,11 +36,11 @@ exports.getMediaEsperaPorTipologia = async (req, res, next) => {
     // Filtro Opcional por Categoria (se o utilizador quiser focar a amostra)
     if (categoria) {
       const categoriaMap = {
-        'muito-urgente': 'Red',
-        'urgente': 'Orange',
-        'pouco-urgente': 'Yellow',
-        'nao-urgente': 'Green',
-        'nao-prioritario': 'Blue'
+        'muito-urgente': 'Red',     // Muito urgente (vermelho)
+        'urgente': 'Orange',        // Urgente (laranja)  
+        'pouco-urgente': 'Yellow',  // Pouco urgente (amarelo)
+        'nao-urgente': 'Green'      // Não urgente (verde)
+        // NOTA: Removido 'nao-prioritario' (azul) para cumprir requisito de 4 categorias
       };
       // Normalização: remove espaços e lowercase
       const key = categoria.toLowerCase().replace(/\s+/g, '-');
@@ -91,15 +91,12 @@ exports.getMediaEsperaPorTipologia = async (req, res, next) => {
             tipo: '$EmergencyType.Code',
             descricao: '$EmergencyType.Description'
           },
-          // NOTA: Usamos $ifNull com 0 e $avg direto. 
-          // Se não houver ninguém na fila (Length = 0), isso deve baixar a média (é bom sinal).
-          // Excluir os zeros daria uma média falsa de "quão cheia está a fila quando tem gente" 
-          // em vez de "média de utentes em espera no período".
+          // REQUISITO: Discriminar por 4 categorias (não urgente, pouco urgente, urgente, muito urgente)
           mediaMuitoUrgente: { $avg: { $ifNull: ['$Triage.Red.Length', 0] } },
           mediaUrgente:      { $avg: { $ifNull: ['$Triage.Orange.Length', 0] } },
           mediaPoucoUrgente: { $avg: { $ifNull: ['$Triage.Yellow.Length', 0] } },
           mediaNaoUrgente:   { $avg: { $ifNull: ['$Triage.Green.Length', 0] } },
-          mediaNaoPrioridade:{ $avg: { $ifNull: ['$Triage.Blue.Length', 0] } },
+          // REMOVIDO: mediaNaoPrioridade para cumprir requisito de 4 categorias
           
           totalAmostras: { $sum: 1 }
         }
@@ -114,8 +111,8 @@ exports.getMediaEsperaPorTipologia = async (req, res, next) => {
             muitoUrgente:   { $round: ['$mediaMuitoUrgente', 2] },
             urgente:        { $round: ['$mediaUrgente', 2] },
             poucoUrgente:   { $round: ['$mediaPoucoUrgente', 2] },
-            naoUrgente:     { $round: ['$mediaNaoUrgente', 2] },
-            naoPrioridade:  { $round: ['$mediaNaoPrioridade', 2] }
+            naoUrgente:     { $round: ['$mediaNaoUrgente', 2] }
+            // REMOVIDO: naoPrioridade para cumprir requisito de 4 categorias
           },
           totalAmostras: 1
         }
@@ -271,12 +268,11 @@ exports.getPercentagensPorCategoria = async (req, res, next) => {
 
 // @desc    Tempo médio de espera para triagem nas urgências pediátricas por região
 // @route   GET /api/v1/urgencias/tempo-medio-pediatricas
-// @query   periodo (semana|mes|trimestre)
+// @query   periodo (semana|mes|trimestre), regiao (opcional - se não fornecido, retorna todas)
 // Tempo médio de espera para triagem nas urgências pediátricas por região
-// GET /api/v1/urgencias/tempo-medio-pediatricas
 exports.getTempoMedioPediatricas = async (req, res, next) => {
   try {
-    const { periodo = 'mes' } = req.query;
+    const { periodo = 'mes', regiao } = req.query;
 
     // intervalo temporal
     const dataFim = new Date();
@@ -331,6 +327,9 @@ exports.getTempoMedioPediatricas = async (req, res, next) => {
         }
       },
 
+      // Filtrar por região se especificado
+      ...(regiao ? [{ $match: { regiao: regiao } }] : []),
+
       // agrupar por região
       {
         $group: {
@@ -364,7 +363,7 @@ exports.getTempoMedioPediatricas = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      meta: { periodo, dataInicio, dataFim, count: resultado.length },
+      meta: { periodo, regiao: regiao || 'todas', dataInicio, dataFim, count: resultado.length },
       data: resultado
     });
 

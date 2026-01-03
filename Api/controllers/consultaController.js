@@ -2,6 +2,23 @@ const Consulta = require('../models/Consulta');
 const Servico = require('../models/Servico');
 const Hospital = require('../models/Hospital');
 
+// --- Utilitários ---
+
+function getWeekNumber(date) {
+    const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+    const dayNum = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+    const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+}
+
+function getQuarter(monthStr) {
+    const months = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", 
+                   "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+    const monthIndex = months.indexOf(monthStr.toLowerCase());
+    return Math.floor(monthIndex / 3) + 1;
+}
+
 /**
  * Controller para análises de consultas
  */
@@ -13,146 +30,199 @@ exports.getDiferencaOncologia = async (req, res, next) => {
   try {
     const { especialidade, hospitalId, dataInicio, dataFim } = req.query;
 
+    // 1. Validação Obrigatória
     if (!especialidade) {
       return res.status(400).json({
         success: false,
-        error: 'Parâmetro especialidade é obrigatório'
+        error: 'Parâmetro "especialidade" é obrigatório.'
       });
     }
 
-    // Primeiro, buscar os ServiceSK que correspondem à especialidade
-    const servicos = await Servico.find({ 
-      Speciality: { $regex: especialidade, $options: 'i' } 
-    }).select('ServiceKey');
+    // 2. Filtros Iniciais (Match) - Aproveitar Índices
+    const matchStage = {
+      Speciality: { $regex: especialidade, $options: 'i' }
+    };
 
-    if (servicos.length === 0) {
-      return res.status(404).json({
-        success: false,
-        error: `Especialidade ${especialidade} não encontrada`
-      });
+    if (hospitalId) {
+      matchStage.HospitalId = parseInt(hospitalId);
     }
 
-    const servicoKeys = servicos.map(s => s.ServiceKey);
-
-    const filters = { ServiceSK: { $in: servicoKeys } };
-    
-    if (hospitalId) filters.HospitalId = parseInt(hospitalId);
-    
-    // Nota: Consultas não tem campo de data direto, apenas Year e Month
-    if (dataInicio || dataFim) {
-      const anoInicio = dataInicio ? new Date(dataInicio).getFullYear() : null;
-      const anoFim = dataFim ? new Date(dataFim).getFullYear() : null;
-      
-      if (anoInicio) filters.Year = { $gte: anoInicio };
-      if (anoFim && !anoInicio) filters.Year = { $lte: anoFim };
-      if (anoInicio && anoFim) filters.Year = { $gte: anoInicio, $lte: anoFim };
+    // Otimização: Filtrar pelo ano primeiro (se possível) para reduzir documentos antes do processamento pesado de datas
+    if (dataInicio && dataFim) {
+      const startYear = new Date(dataInicio).getFullYear();
+      const endYear = new Date(dataFim).getFullYear();
+      matchStage.Year = { $gte: startYear, $lte: endYear };
     }
 
-    const resultado = await Consulta.aggregate([
-      { $match: filters },
+    // 3. Pipeline de Agregação
+    const pipeline = [
+      { $match: matchStage },
+
+      // Convertemos para número para criar uma data comparável
       {
-        $lookup: {
-          from: 'Servico',
-          localField: 'ServiceSK',
-          foreignField: 'ServiceKey',
-          as: 'servico'
-        }
-      },
-      { $unwind: { path: '$servico', preserveNullAndEmptyArrays: true } },
-      {
-        $group: {
-          _id: {
-            isOncology: {
-              $cond: [
-                { 
-                  $or: [
-                    { $regexMatch: { input: { $ifNull: ['$servico.PriorityDescription', ''] }, regex: /oncológica/i } },
-                    { $regexMatch: { input: { $ifNull: ['$servico.Speciality', ''] }, regex: /oncolog/i } }
-                  ]
-                },
-                true,
-                false
-              ]
-            },
-            hospitalName: '$HospitalName'
-          },
-          tempoMedioEspera: { $avg: '$AverageWaitingTime' },
-          totalUtentes: { $sum: '$NumberOfPeople' },
-          totalRegistos: { $sum: 1 }
-        }
-      },
-      {
-        $group: {
-          _id: {
-            hospitalName: '$_id.hospitalName'
-          },
-          consultas: {
-            $push: {
-              tipo: { $cond: ['$_id.isOncology', 'Oncologia', 'Não-Oncologia'] },
-              tempoMedioEspera: { $round: ['$tempoMedioEspera', 2] },
-              totalUtentes: '$totalUtentes'
+        $addFields: {
+          monthNum: {
+            $switch: {
+              branches: [
+                { case: { $eq: ["$Month", "Janeiro"] }, then: 1 },
+                { case: { $eq: ["$Month", "Fevereiro"] }, then: 2 },
+                { case: { $eq: ["$Month", "Março"] }, then: 3 },
+                { case: { $eq: ["$Month", "Abril"] }, then: 4 },
+                { case: { $eq: ["$Month", "Maio"] }, then: 5 },
+                { case: { $eq: ["$Month", "Junho"] }, then: 6 },
+                { case: { $eq: ["$Month", "Julho"] }, then: 7 },
+                { case: { $eq: ["$Month", "Agosto"] }, then: 8 },
+                { case: { $eq: ["$Month", "Setembro"] }, then: 9 },
+                { case: { $eq: ["$Month", "Outubro"] }, then: 10 },
+                { case: { $eq: ["$Month", "Novembro"] }, then: 11 },
+                { case: { $eq: ["$Month", "Dezembro"] }, then: 12 }
+              ],
+              default: 0
             }
           }
         }
       },
+      // Criar objeto Data real para filtragem precisa
+      {
+        $addFields: {
+          computedDate: {
+            $dateFromParts: {
+              year: "$Year",
+              month: "$monthNum",
+              day: "$Day"
+            }
+          }
+        }
+      },
+      // Filtrar pelo range exato de datas (Dia/Mês/Ano)
+      ...(dataInicio || dataFim ? [{
+        $match: {
+          computedDate: {
+            ...(dataInicio && { $gte: new Date(dataInicio) }),
+            ...(dataFim && { $lte: new Date(dataFim) })
+          }
+        }
+      }] : []),
+
+      // --- AGRUPAMENTO 1: Por Hospital e Tipo ---
+      {
+        $group: {
+          _id: {
+            hospitalId: '$HospitalId', // Agrupar só pelo ID
+            waitingListType: '$WaitingListType'
+          },
+          hospitalName: { $first: '$HospitalName' }, // Obter o nome (primeira ocorrência)
+          mediaTempo: {
+            $avg: {
+              // Média dos 3 campos de tempo por registo
+              $avg: [
+                { $ifNull: ['$AverageWaitingTime.Normal', 0] },
+                { $ifNull: ['$AverageWaitingTime.Prioritario', 0] },
+                { $ifNull: ['$AverageWaitingTime.MuitoPrioritario', 0] }
+              ]
+            }
+          },
+          totalRegistos: { $sum: '$NumberOfPeople' },
+          countDocs: { $sum: 1 }
+        }
+      },
+
+      // --- AGRUPAMENTO 2: Consolidar no Hospital ---
+      {
+        $group: {
+          _id: '$_id.hospitalId',
+          hospitalName: { $first: '$hospitalName' },
+          dados: {
+            $push: {
+              tipo: '$_id.waitingListType',
+              media: '$mediaTempo',
+              registos: '$totalRegistos'
+            }
+          }
+        }
+      },
+
+      // --- PROJEÇÃO FINAL E CÁLCULOS ---
       {
         $project: {
           _id: 0,
-          hospitalName: '$_id.hospitalName',
-          consultas: 1,
-          diferencaTempo: {
-            $let: {
-              vars: {
-                onco: {
-                  $arrayElemAt: [
-                    {
-                      $filter: {
-                        input: '$consultas',
-                        as: 'c',
-                        cond: { $eq: ['$$c.tipo', 'Oncologia'] }
-                      }
-                    },
-                    0
-                  ]
-                },
-                naoOnco: {
-                  $arrayElemAt: [
-                    {
-                      $filter: {
-                        input: '$consultas',
-                        as: 'c',
-                        cond: { $eq: ['$$c.tipo', 'Não-Oncologia'] }
-                      }
-                    },
-                    0
-                  ]
-                }
-              },
-              in: {
-                $round: [
-                  {
-                    $subtract: [
-                      { $ifNull: ['$$onco.tempoMedioEspera', 0] },
-                      { $ifNull: ['$$naoOnco.tempoMedioEspera', 0] }
+          hospitalId: '$_id',
+          hospitalName: 1,
+          estatisticas: {
+            // Extrair dados Oncológicos
+            oncologia: {
+              $let: {
+                vars: {
+                  item: {
+                    $arrayElemAt: [
+                      { $filter: { input: '$dados', as: 'd', cond: { $eq: ['$$d.tipo', 'Oncológica'] } } },
+                      0
                     ]
-                  },
-                  2
-                ]
+                  }
+                },
+                in: {
+                  tempoMedio: { $ifNull: ['$$item.media', 0] },
+                  totalRegistos: { $ifNull: ['$$item.registos', 0] }
+                }
+              }
+            },
+            // Extrair dados Não Oncológica
+            naoOncologia: {
+              $let: {
+                vars: {
+                  item: {
+                    $arrayElemAt: [
+                      { $filter: { input: '$dados', as: 'd', cond: { $eq: ['$$d.tipo', 'Não Oncológica'] } } },
+                      0
+                    ]
+                  }
+                },
+                in: {
+                  tempoMedio: { $ifNull: ['$$item.media', 0] },
+                  totalRegistos: { $ifNull: ['$$item.registos', 0] }
+                }
               }
             }
           }
         }
       },
+      // Calcular Diferença
+      {
+        $addFields: {
+          diferencaTempo: {
+            // Usar $abs para evitar valores negativos
+            $abs: {
+              $subtract: [
+                { $ifNull: ['$estatisticas.oncologia.tempoMedio', 0] },
+                { $ifNull: ['$estatisticas.naoOncologia.tempoMedio', 0] }
+              ]
+            }
+          }
+        }
+      },
+      // Remover hospitais que não têm dados nenhuns (opcional, mas recomendado)
+      {
+        $match: {
+          $or: [
+            { 'estatisticas.oncologia.totalRegistos': { $gt: 0 } },
+            { 'estatisticas.naoOncologia.totalRegistos': { $gt: 0 } }
+          ]
+        }
+      },
       { $sort: { diferencaTempo: -1 } }
-    ]);
+    ];
+
+    const resultado = await Consulta.aggregate(pipeline);
 
     res.status(200).json({
       success: true,
-      count: resultado.length,
-      especialidade: especialidade,
-      periodo: { dataInicio, dataFim },
+      meta: {
+        count: resultado.length,
+        filtros: { especialidade, hospitalId, dataInicio, dataFim }
+      },
       data: resultado
     });
+
   } catch (error) {
     next(error);
   }
@@ -169,16 +239,16 @@ exports.getConsultas = async (req, res, next) => {
     if (hospitalName) filters.HospitalName = { $regex: hospitalName, $options: 'i' };
     if (ano) filters.Year = parseInt(ano);
     if (mes) filters.Month = { $regex: mes, $options: 'i' };
-    
+
     // Filtrar por especialidade requer lookup com Servico
     let query = Consulta.find(filters);
 
     if (especialidade) {
       // Buscar ServiceSK que correspondem à especialidade
-      const servicos = await Servico.find({ 
-        Speciality: { $regex: especialidade, $options: 'i' } 
+      const servicos = await Servico.find({
+        Speciality: { $regex: especialidade, $options: 'i' }
       }).select('ServiceKey');
-      
+
       const servicoKeys = servicos.map(s => s.ServiceKey);
       query = query.where('ServiceSK').in(servicoKeys);
     }
@@ -209,7 +279,7 @@ exports.submitConsultaXML = async (req, res, next) => {
   try {
     // Dados já convertidos de XML para JSON pelo middleware
     const xmlData = req.body;
-    
+
     // Validar estrutura do XML
     if (!xmlData || !xmlData.RelatorioConsultas) {
       return res.status(400).json({
@@ -240,10 +310,10 @@ exports.submitConsultaXML = async (req, res, next) => {
     }
 
     // Validar se o Hospital existe pelo HospitalId
-    const hospitalExists = await Hospital.findOne({ 
+    const hospitalExists = await Hospital.findOne({
       HospitalId: parseInt(cabecalho.HospitalID)
     });
-    
+
     if (!hospitalExists) {
       return res.status(400).json({
         success: false,
@@ -305,8 +375,8 @@ exports.submitConsultaXML = async (req, res, next) => {
             MuitoPrioritario: parseFloat(consultaData.AverageWaitingTime.MuitoPrioritario || 0)
           },
           Day: parseInt(consultaData.Day),
-          Week: Math.ceil(parseInt(consultaData.Day) / 7), // Aproximação simples
-          Quarter: Math.ceil(getMonthNumber(cabecalho.Periodo.Mes) / 3),
+          Week: getWeekNumber(new Date(parseInt(cabecalho.Periodo.Ano), getMonthNumber(cabecalho.Periodo.Mes) - 1, parseInt(consultaData.Day))),
+          Quarter: getQuarter(cabecalho.Periodo.Mes),
           Month: cabecalho.Periodo.Mes,
           Year: parseInt(cabecalho.Periodo.Ano),
           NumberOfPeople: parseInt(consultaData.NumberOfPeople || 0),
