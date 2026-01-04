@@ -26,11 +26,11 @@ function getQuarter(monthStr) {
 // @desc    Tempo médio de espera para cirurgia programada por especialidade, comparando
 //          entre lista geral e lista oncológica, no mês
 // @route   GET /api/v1/cirurgias/tempo-medio-especialidade
-// @query   mes (obrigatório), ano (opcional - se não fornecido, calcula para TODOS os anos)
+// @query   mes (obrigatório), ano (opcional), especialidade (opcional)
 // @note    Retorna APENAS especialidades que tenham AMBAS as listas (Geral E Oncológica) para comparação válida
 exports.getTempoMedioPorEspecialidade = async (req, res, next) => {
     try {
-        const { mes, ano } = req.query;
+        const { mes, ano, especialidade } = req.query;
 
         // Validação: mês é obrigatório
         if (!mes) {
@@ -47,6 +47,11 @@ exports.getTempoMedioPorEspecialidade = async (req, res, next) => {
         
         if (ano) {
             matchFilter.Year = parseInt(ano);
+        }
+
+        // Se especialidade foi fornecida, adicionar ao filtro
+        if (especialidade) {
+            matchFilter.Speciality = { $regex: especialidade, $options: 'i' };
         }
 
         const pipeline = [
@@ -210,8 +215,8 @@ exports.getTempoMedioPorEspecialidade = async (req, res, next) => {
             success: true,
             mes: mes,
             ano: ano ? parseInt(ano) : "todos",
+            especialidade: especialidade || "todas",
             count: results.length,
-            nota: "Mostra apenas especialidades com AMBAS as listas (Geral E Oncológica) para comparação válida",
             data: results
         });
 
