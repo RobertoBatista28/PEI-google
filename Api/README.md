@@ -239,7 +239,7 @@ Api/
 
 ## 🔒 Variáveis de Ambiente
 
-Arquivo `.env`:
+Ficheiro `.env`:
 ```env
 MONGODB_URI=mongodb+srv://8230465:ferwf@pei.das.mongodb.net/healthtime
 PORT=3000
@@ -249,10 +249,10 @@ NODE_ENV=development
 ## 🧪 Testes
 
 ```bash
-# Teste de conexão
+# Teste de ligação e endpoints principais
 npm run test
 
-# Teste manual com arquivo .http
+# Teste manual com ficheiro .http
 # Use a extensão REST Client no VS Code
 # Abrir: api-tests.http
 ```
@@ -306,7 +306,7 @@ curl "http://localhost:3000/api/v1/urgencias/top-hospitais-pediatricas?limit=10"
 
 ## 🐛 Troubleshooting
 
-### Erro de conexão MongoDB
+### Erro de ligação MongoDB
 - Verificar credenciais no `.env`
 - Confirmar IP na whitelist do MongoDB Atlas
 - Verificar conectividade à Internet

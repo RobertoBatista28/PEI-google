@@ -47,7 +47,6 @@ exports.getDiferencaOncologia = async (req, res, next) => {
       matchStage.HospitalId = parseInt(hospitalId);
     }
 
-    // Otimização: Filtrar pelo ano primeiro (se possível) para reduzir documentos antes do processamento pesado de datas
     if (dataInicio && dataFim) {
       const startYear = new Date(dataInicio).getFullYear();
       const endYear = new Date(dataFim).getFullYear();
@@ -108,10 +107,10 @@ exports.getDiferencaOncologia = async (req, res, next) => {
       {
         $group: {
           _id: {
-            hospitalId: '$HospitalId', // Agrupar só pelo ID
+            hospitalId: '$HospitalId',
             waitingListType: '$WaitingListType'
           },
-          hospitalName: { $first: '$HospitalName' }, // Obter o nome (primeira ocorrência)
+          hospitalName: { $first: '$HospitalName' },
           mediaTempo: {
             $avg: {
               // Média dos 3 campos de tempo por registo
@@ -200,7 +199,7 @@ exports.getDiferencaOncologia = async (req, res, next) => {
           }
         }
       },
-      // Remover hospitais que não têm dados nenhuns (opcional, mas recomendado)
+      // Remover hospitais que não têm dados nenhuns
       {
         $match: {
           $or: [

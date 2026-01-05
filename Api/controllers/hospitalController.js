@@ -39,8 +39,8 @@ exports.getHospitais = async (req, res, next) => {
 // @route   GET /api/v1/hospitais/:id
 exports.getHospital = async (req, res, next) => {
   try {
-    const hospital = await Hospital.findOne({ 
-      HospitalId: parseInt(req.params.id) 
+    const hospital = await Hospital.findOne({
+      HospitalId: parseInt(req.params.id)
     });
 
     if (!hospital) {
@@ -88,7 +88,7 @@ exports.getHospitaisProximos = async (req, res, next) => {
       return res.status(400).json({ success: false, error: 'Forneça um "hospitalId" ou coordenadas "lat" e "lng".' });
     }
 
-    // Raio da Terra em quilômetros
+    // Raio da Terra em quilómetros
     const R = 6371;
 
     const pipeline = [

@@ -60,7 +60,7 @@ exports.getDiscrepanciaConsultaCirurgia = async (req, res, next) => {
         break;
     }
 
-    // 5. Definir agrupamento dinâmico (CORREÇÃO: Agrupar por hospital + especialidade + período)
+    // 5. Definir agrupamento dinâmico
     let groupId = {
       hospitalId: "$HospitalId",
       hospitalName: "$HospitalName",

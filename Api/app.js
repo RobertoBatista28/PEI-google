@@ -36,24 +36,38 @@ app.get('/', (req, res) => {
       stats: '/api/v1/stats'
     },
     documentation: {
+      hospitais: {
+        listar: 'GET /api/v1/hospitais',
+        detalhes: 'GET /api/v1/hospitais/:id',
+        proximos: 'GET /api/v1/hospitais/proximos/:longitude/:latitude'
+      },
+      servicos: {
+        listar: 'GET /api/v1/servicos',
+        detalhes: 'GET /api/v1/servicos/:id'
+      },
       urgencias: {
+        listar: 'GET /api/v1/urgencias',
+        detalhes: 'GET /api/v1/urgencias/:id',
         mediaEspera: 'GET /api/v1/urgencias/media-espera',
         percentagensTriagem: 'GET /api/v1/urgencias/percentagens-triagem',
         tempoMedioPediatricas: 'GET /api/v1/urgencias/tempo-medio-pediatricas',
         topHospitaisPediatricas: 'GET /api/v1/urgencias/top-hospitais-pediatricas',
-        evolucaoTemporal: 'GET /api/v1/urgencias/evolucao-temporal'
+        evolucaoTemporal: 'GET /api/v1/urgencias/evolucao-temporal',
+        submitXML: 'POST /api/v1/urgencias/submit-xml'
       },
       consultas: {
+        listar: 'GET /api/v1/consultas',
         diferencaOncologia: 'GET /api/v1/consultas/diferenca-oncologia',
-        listar: 'GET /api/v1/consultas'
+        submitXML: 'POST /api/v1/consultas/submit-xml'
       },
       cirurgias: {
+        listar: 'GET /api/v1/cirurgias',
         tempoMedioEspecialidade: 'GET /api/v1/cirurgias/tempo-medio-especialidade',
-        listar: 'GET /api/v1/cirurgias'
+        submitXML: 'POST /api/v1/cirurgias/submit-xml'
       },
       stats: {
-        discrepancia: 'GET /api/v1/stats/discrepancia-consulta-cirurgia',
-        geral: 'GET /api/v1/stats/geral'
+        geral: 'GET /api/v1/stats/geral',
+        discrepancia: 'GET /api/v1/stats/discrepancia-consulta-cirurgia'
       }
     }
   });

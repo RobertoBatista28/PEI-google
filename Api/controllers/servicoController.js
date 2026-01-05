@@ -39,7 +39,7 @@ exports.getServicos = async (req, res, next) => {
 // @route   GET /api/v1/servicos/:id
 exports.getServico = async (req, res, next) => {
   try {
-    const servico = await Servico.findOne({ 
+    const servico = await Servico.findOne({
       ServiceKey: parseInt(req.params.id)
     });
 

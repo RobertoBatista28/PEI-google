@@ -13,8 +13,8 @@ function getWeekNumber(date) {
 }
 
 function getQuarter(monthStr) {
-    const months = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", 
-                   "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+    const months = ["janeiro", "fevereiro", "março", "abril", "maio", "junho",
+        "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
     const monthIndex = months.indexOf(monthStr.toLowerCase());
     return Math.floor(monthIndex / 3) + 1;
 }
@@ -34,9 +34,9 @@ exports.getTempoMedioPorEspecialidade = async (req, res, next) => {
 
         // Validação: mês é obrigatório
         if (!mes) {
-            return res.status(400).json({ 
-                success: false, 
-                error: 'Parâmetro "mes" é obrigatório' 
+            return res.status(400).json({
+                success: false,
+                error: 'Parâmetro "mes" é obrigatório'
             });
         }
 
@@ -44,7 +44,7 @@ exports.getTempoMedioPorEspecialidade = async (req, res, next) => {
         const matchFilter = {
             Month: { $regex: mes, $options: 'i' }
         };
-        
+
         if (ano) {
             matchFilter.Year = parseInt(ano);
         }
@@ -239,10 +239,10 @@ exports.getCirurgias = async (req, res, next) => {
 
         // Se houver filtro de especialidade, precisamos primeiro encontrar os IDs dos serviços
         if (especialidade) {
-            const servicos = await Servico.find({ 
-                Speciality: { $regex: especialidade, $options: 'i' } 
+            const servicos = await Servico.find({
+                Speciality: { $regex: especialidade, $options: 'i' }
             }).select('ServiceKey');
-            
+
             // Se não encontrar serviços com esse nome, retorna vazio imediatamente
             if (servicos.length === 0) {
                 return res.status(200).json({ success: true, count: 0, data: [] });
@@ -277,29 +277,24 @@ exports.getCirurgias = async (req, res, next) => {
 exports.submitCirurgiaXML = async (req, res, next) => {
     try {
         const xmlData = req.body;
-        
+
         // 1. Validação Básica da Estrutura
         if (!xmlData.RelatorioCirurgias || !xmlData.RelatorioCirurgias.ListaCirurgias) {
-            return res.status(400).json({ 
-                success: false, 
-                error: 'Estrutura XML inválida. Esperado RelatorioCirurgias > ListaCirurgias' 
+            return res.status(400).json({
+                success: false,
+                error: 'Estrutura XML inválida. Esperado RelatorioCirurgias > ListaCirurgias'
             });
         }
 
         const cabecalho = xmlData.RelatorioCirurgias.Cabecalho;
         let lista = xmlData.RelatorioCirurgias.ListaCirurgias.Cirurgia;
-        
-        // Normalizar lista para array (caso venha apenas 1 item)
         if (!Array.isArray(lista)) lista = [lista];
 
         // 2. Validação do Hospital (MOVIDO PARA FORA DO LOOP - PERFORMANCE)
-        // Validamos o hospital apenas uma vez, pois o cabeçalho é único para o ficheiro
-        
-        // Validar campos obrigatórios no cabeçalho
         if (!cabecalho.HospitalID || !cabecalho.HospitalName) {
-            return res.status(400).json({ 
-                success: false, 
-                error: 'Campos obrigatórios ausentes no cabeçalho: HospitalID e HospitalName são obrigatórios' 
+            return res.status(400).json({
+                success: false,
+                error: 'Campos obrigatórios ausentes no cabeçalho: HospitalID e HospitalName são obrigatórios'
             });
         }
 
@@ -307,9 +302,9 @@ exports.submitCirurgiaXML = async (req, res, next) => {
         const hospital = await Hospital.findOne({ HospitalId: parseInt(cabecalho.HospitalID) });
 
         if (!hospital) {
-            return res.status(404).json({ 
-                success: false, 
-                error: `Hospital com HospitalId ${cabecalho.HospitalID} não encontrado na base de dados.` 
+            return res.status(404).json({
+                success: false,
+                error: `Hospital com HospitalId ${cabecalho.HospitalID} não encontrado na base de dados.`
             });
         }
 
@@ -332,7 +327,7 @@ exports.submitCirurgiaXML = async (req, res, next) => {
             const ano = parseInt(cabecalho.Periodo.Ano);
             const mesStr = cabecalho.Periodo.Mes.toLowerCase();
             const mesIndex = monthMap[mesStr];
-            
+
             // Validação de mês
             if (mesIndex === undefined) {
                 console.warn(`Mês inválido encontrado: ${cabecalho.Periodo.Mes}`);
@@ -344,22 +339,22 @@ exports.submitCirurgiaXML = async (req, res, next) => {
 
             // Construção do Documento
             const doc = {
-                HospitalId: hospital.HospitalId, // Usa o ID do hospital validado
-                HospitalName: hospital.HospitalName, // Usa o nome normalizado da BD
+                HospitalId: hospital.HospitalId,
+                HospitalName: hospital.HospitalName,
                 ServiceSK: parseInt(item.ServiceSK),
                 WaitingListType: item.WaitingListType,
                 AverageWaitingTime: parseFloat(item.AverageWaitingTime),
                 Day: dia,
                 Week: getWeekNumber(dataRegisto),
                 Quarter: getQuarter(mesStr),
-                Month: cabecalho.Periodo.Mes, // Mantém o original (ex: "Dezembro")
+                Month: cabecalho.Periodo.Mes,
                 Year: ano,
                 NumberOfPeople: parseInt(item.NumberOfPeople || 0),
                 PriorityDescription: item.PriorityDescription,
                 Speciality: item.Speciality
             };
 
-            // Critério de Unicidade: Se recebermos dados para o mesmo Hospital, Serviço, Tipo, Ano, Mês e Dia, ATUALIZAMOS.
+            // Critério de Unicidade: Se recebermos dados para o mesmo Hospital, Serviço, Tipo, Ano, Mês e Dia, atualizamos
             const filter = {
                 HospitalId: doc.HospitalId,
                 ServiceSK: doc.ServiceSK,
@@ -392,9 +387,9 @@ exports.submitCirurgiaXML = async (req, res, next) => {
                 }
             });
         } else {
-            return res.status(400).json({ 
-                success: false, 
-                message: "Nenhum dado válido para processar." 
+            return res.status(400).json({
+                success: false,
+                message: "Nenhum dado válido para processar."
             });
         }
 

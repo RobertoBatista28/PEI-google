@@ -29,24 +29,18 @@ const validateAndParseXML = (schemaFilename) => {
 
             try {
                 // 1. Definir o caminho do XSD
-                // Assume que a pasta 'schemas' está na raiz do projeto, um nível acima de 'middleware'
                 const schemaPath = path.join(__dirname, '../schemas', schemaFilename);
 
                 // 2. Validar o XML contra o XSD
-                // O .trim() é importante para evitar erros com espaços em branco no início/fim
                 await validator.validateXML(req.body.trim(), schemaPath);
 
                 // 3. Se passar na validação, faz o Parse para JSON
                 const parsed = parser.parse(req.body);
-
-                // Substitui o XML string pelo Objeto JSON no req.body
                 req.body = parsed;
-                
+
                 next();
 
             } catch (err) {
-                // O xsd-schema-validator lança erro se o XML for inválido segundo o XSD
-                
                 return res.status(400).json({
                     success: false,
                     status: 'error',
@@ -56,7 +50,6 @@ const validateAndParseXML = (schemaFilename) => {
                 });
             }
         } else {
-            // Se não for XML ou não for string, passa à frente (ou retorna erro 415 se quiseres ser estrito)
             next();
         }
     };

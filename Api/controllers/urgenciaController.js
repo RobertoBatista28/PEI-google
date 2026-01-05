@@ -16,7 +16,7 @@ exports.getMediaEsperaPorTipologia = async (req, res, next) => {
     // 1. Construção do Filtro ($match)
     const matchStage = {
       // Importante: Só queremos médias de quando a urgência estava, efetivamente, a funcionar.
-      EmergencyStatus: 'Aberta' 
+      EmergencyStatus: 'Aberta'
     };
 
     // Filtro por Tipologia (ex: GERAL, PEDIATRIA)
@@ -25,7 +25,7 @@ exports.getMediaEsperaPorTipologia = async (req, res, next) => {
     }
 
     // Filtro Temporal
-    const inicio = dataInicio ? new Date(dataInicio) : new Date(new Date().setHours(0,0,0,0)); // Default hoje 00:00
+    const inicio = dataInicio ? new Date(dataInicio) : new Date(new Date().setHours(0, 0, 0, 0)); // Default hoje 00:00
     const fim = dataFim ? new Date(dataFim) : new Date();
 
     matchStage.LastUpdate = {
@@ -45,7 +45,7 @@ exports.getMediaEsperaPorTipologia = async (req, res, next) => {
       // Normalização: remove espaços e lowercase
       const key = categoria.toLowerCase().replace(/\s+/g, '-');
       const mappedColor = categoriaMap[key];
-      
+
       if (mappedColor) {
         // Filtra documentos onde essa categoria específica tinha alguém (opcional)
         matchStage[`Triage.${mappedColor}.Length`] = { $gt: 0 };
@@ -55,7 +55,7 @@ exports.getMediaEsperaPorTipologia = async (req, res, next) => {
     // 2. Definição do Agrupamento Temporal
     let groupByPeriodo = {};
     let sortPeriodo = {};
-    
+
     switch (periodo.toLowerCase()) {
       case 'dia':
         groupByPeriodo = {
@@ -93,11 +93,11 @@ exports.getMediaEsperaPorTipologia = async (req, res, next) => {
           },
           // REQUISITO: Discriminar por 4 categorias (não urgente, pouco urgente, urgente, muito urgente)
           mediaMuitoUrgente: { $avg: { $ifNull: ['$Triage.Red.Length', 0] } },
-          mediaUrgente:      { $avg: { $ifNull: ['$Triage.Orange.Length', 0] } },
+          mediaUrgente: { $avg: { $ifNull: ['$Triage.Orange.Length', 0] } },
           mediaPoucoUrgente: { $avg: { $ifNull: ['$Triage.Yellow.Length', 0] } },
-          mediaNaoUrgente:   { $avg: { $ifNull: ['$Triage.Green.Length', 0] } },
+          mediaNaoUrgente: { $avg: { $ifNull: ['$Triage.Green.Length', 0] } },
           // REMOVIDO: mediaNaoPrioridade para cumprir requisito de 4 categorias
-          
+
           totalAmostras: { $sum: 1 }
         }
       },
@@ -108,10 +108,10 @@ exports.getMediaEsperaPorTipologia = async (req, res, next) => {
           tipologia: '$_id.tipo',
           descricao: '$_id.descricao',
           mediasUtentesEmEspera: {
-            muitoUrgente:   { $round: ['$mediaMuitoUrgente', 2] },
-            urgente:        { $round: ['$mediaUrgente', 2] },
-            poucoUrgente:   { $round: ['$mediaPoucoUrgente', 2] },
-            naoUrgente:     { $round: ['$mediaNaoUrgente', 2] }
+            muitoUrgente: { $round: ['$mediaMuitoUrgente', 2] },
+            urgente: { $round: ['$mediaUrgente', 2] },
+            poucoUrgente: { $round: ['$mediaPoucoUrgente', 2] },
+            naoUrgente: { $round: ['$mediaNaoUrgente', 2] }
             // REMOVIDO: naoPrioridade para cumprir requisito de 4 categorias
           },
           totalAmostras: 1
@@ -147,11 +147,11 @@ exports.getPercentagensPorCategoria = async (req, res, next) => {
     }
 
     // 1. Filtro inicial
-    const matchStage = { 
+    const matchStage = {
       HospitalId: parseInt(hospitalId),
       EmergencyStatus: 'Aberta'
     };
-    
+
     if (dataInicio || dataFim) {
       matchStage.LastUpdate = {};
       if (dataInicio) matchStage.LastUpdate.$gte = new Date(dataInicio);
@@ -231,10 +231,10 @@ exports.getPercentagensPorCategoria = async (req, res, next) => {
           totalMediaUtentes: { $round: ['$totalMediaUtentes', 0] },
           percentagens: {
             muitoUrgente: { $cond: [{ $eq: ['$totalMediaUtentes', 0] }, 0, { $round: [{ $multiply: [{ $divide: ['$avgVermelho', '$totalMediaUtentes'] }, 100] }, 2] }] },
-            urgente:      { $cond: [{ $eq: ['$totalMediaUtentes', 0] }, 0, { $round: [{ $multiply: [{ $divide: ['$avgLaranja', '$totalMediaUtentes'] }, 100] }, 2] }] },
+            urgente: { $cond: [{ $eq: ['$totalMediaUtentes', 0] }, 0, { $round: [{ $multiply: [{ $divide: ['$avgLaranja', '$totalMediaUtentes'] }, 100] }, 2] }] },
             poucoUrgente: { $cond: [{ $eq: ['$totalMediaUtentes', 0] }, 0, { $round: [{ $multiply: [{ $divide: ['$avgAmarelo', '$totalMediaUtentes'] }, 100] }, 2] }] },
-            naoUrgente:   { $cond: [{ $eq: ['$totalMediaUtentes', 0] }, 0, { $round: [{ $multiply: [{ $divide: ['$avgVerde', '$totalMediaUtentes'] }, 100] }, 2] }] },
-            naoPrioridade:{ $cond: [{ $eq: ['$totalMediaUtentes', 0] }, 0, { $round: [{ $multiply: [{ $divide: ['$avgAzul', '$totalMediaUtentes'] }, 100] }, 2] }] }
+            naoUrgente: { $cond: [{ $eq: ['$totalMediaUtentes', 0] }, 0, { $round: [{ $multiply: [{ $divide: ['$avgVerde', '$totalMediaUtentes'] }, 100] }, 2] }] },
+            naoPrioridade: { $cond: [{ $eq: ['$totalMediaUtentes', 0] }, 0, { $round: [{ $multiply: [{ $divide: ['$avgAzul', '$totalMediaUtentes'] }, 100] }, 2] }] }
           }
         }
       }
@@ -400,7 +400,7 @@ exports.getTopHospitaisPediatricas = async (req, res, next) => {
           _id: '$HospitalId',
           // Guardar tipologia para referência
           descricaoTipologia: { $first: '$EmergencyType.Description' },
-          
+
           // Soma Ponderada (Tempo * Quantidade)
           totalMinutosPonderados: {
             $sum: {
@@ -413,7 +413,7 @@ exports.getTopHospitaisPediatricas = async (req, res, next) => {
               ]
             }
           },
-          
+
           // Total de Utentes
           totalUtentes: {
             $sum: {
@@ -442,31 +442,31 @@ exports.getTopHospitaisPediatricas = async (req, res, next) => {
       // ETAPA 4: Ordenar (Menor tempo primeiro)
       { $sort: { tempoMedioEspera: 1 } },
 
-      // ETAPA 5: Limitar (Otimização: Reduzir docs antes do Lookup)
+      // ETAPA 5: Limitar
       { $limit: parseInt(limit) },
 
-      // ETAPA 6: Enriquecer com dados do Hospital (CORREÇÃO: Fazer lookup ANTES da projeção)
+      // ETAPA 6: Enriquecer com dados do Hospital
       {
         $lookup: {
           from: 'Hospital',
-          localField: '_id', // _id aqui é o HospitalId
+          localField: '_id',
           foreignField: 'HospitalId',
           as: 'detalhesHospital'
         }
       },
-      
+
       { $unwind: '$detalhesHospital' },
 
-      // ETAPA 7: Formatação Final (CORREÇÃO: Usar dados do lookup)
+      // ETAPA 7: Formatação Final 
       {
         $project: {
           _id: 0,
           hospitalId: '$_id',
-          hospital: '$detalhesHospital.HospitalName', // ← CORREÇÃO: Buscar do lookup
+          hospital: '$detalhesHospital.HospitalName',
           tipologia: '$descricaoTipologia',
           regiao: '$detalhesHospital.NUTSII',
           distrito: '$detalhesHospital.District',
-          tempoMedioEspera: 1, 
+          tempoMedioEspera: 1,
           totalUtentesProcessados: '$totalUtentes',
           contactos: {
             telefone: '$detalhesHospital.PhoneNum',
@@ -621,7 +621,7 @@ exports.getUrgencias = async (req, res, next) => {
     const filters = {};
     if (hospitalId) filters.HospitalId = parseInt(hospitalId);
     if (tipo) filters['EmergencyType.Code'] = tipo;
-    
+
     if (dataInicio || dataFim) {
       filters.LastUpdate = {};
       if (dataInicio) filters.LastUpdate.$gte = new Date(dataInicio);
@@ -683,12 +683,12 @@ exports.getUrgencia = async (req, res, next) => {
 exports.submitUrgenciaXML = async (req, res, next) => {
   try {
     const xmlData = req.body;
-    
+
     // 1. Validação Básica da Estrutura
     if (!xmlData.RelatorioUrgencia) {
-      return res.status(400).json({ 
-        success: false, 
-        error: 'Estrutura XML inválida. Esperado RelatorioUrgencia' 
+      return res.status(400).json({
+        success: false,
+        error: 'Estrutura XML inválida. Esperado RelatorioUrgencia'
       });
     }
 
@@ -696,9 +696,9 @@ exports.submitUrgenciaXML = async (req, res, next) => {
     const listaUrgencias = xmlData.RelatorioUrgencia.ListaUrgencias;
 
     if (!cabecalho || !listaUrgencias) {
-      return res.status(400).json({ 
-        success: false, 
-        error: 'Estrutura XML inválida. Esperado Cabecalho e ListaUrgencias' 
+      return res.status(400).json({
+        success: false,
+        error: 'Estrutura XML inválida. Esperado Cabecalho e ListaUrgencias'
       });
     }
 
@@ -848,7 +848,7 @@ exports.submitUrgenciaXML = async (req, res, next) => {
 
   } catch (error) {
     console.error('Erro no submitUrgenciaXML:', error);
-    
+
     // Erro de validação do Mongoose
     if (error.name === 'ValidationError') {
       const messages = Object.values(error.errors).map(err => err.message);
